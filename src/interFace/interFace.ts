@@ -19,25 +19,23 @@ interface HeaderType {
 }
 
 // children type
-
 export interface childrenType {
   children: React.ReactNode;
 }
 
 // context api data type
-
 export interface AppContextType {
   sideMenuOpen?: boolean;
-  // 
+  //
 
   header: HeaderType;
   toggleSideMenu?: () => void;
   toggleModal?: () => void;
-  logout?: () => void; 
+  logout?: () => void;
   scrollDirection?: string;
   setScrollDirection?: React.Dispatch<React.SetStateAction<string>> | undefined;
   showSidebar?: boolean;
-  setShowSidebar?: React.Dispatch<React.SetStateAction<boolean>>
+  setShowSidebar?: React.Dispatch<React.SetStateAction<boolean>>;
   showSidebarWishlist?: boolean;
   setShowSidebarWishlist?: React.Dispatch<React.SetStateAction<boolean>>;
   prodcutLoadding: boolean;
@@ -46,7 +44,7 @@ export interface AppContextType {
   setOpenWishlist: React.Dispatch<React.SetStateAction<boolean>>;
   user?: IUser;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-  loggedIn?: boolean; 
+  loggedIn?: boolean;
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -65,9 +63,9 @@ export interface AppContextType {
   currentPage: number;
   setcurrentPage: React.Dispatch<React.SetStateAction<number>>;
   page: number;
-  limit:number;
+  limit: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
-  dynamicId:string;
+  dynamicId: string;
   setDynamicId: React.Dispatch<React.SetStateAction<string>>;
   paymentSuccess: boolean;
   setPaymentSuccess: React.Dispatch<React.SetStateAction<boolean>>;
@@ -91,7 +89,6 @@ export interface idType {
 }
 
 // menu type
-
 interface DropdownItem {
   link: string;
   title: string;
@@ -107,7 +104,6 @@ export interface NavMenuItem {
 }
 
 // cart product type
-
 export interface CartProductType {
   _id: string;
   categoryName: string;
@@ -149,9 +145,7 @@ export interface SellProductInfoType {
   orderSummary: CartProductType[]; // Assuming CartProductType is the type for items in cartProducts
 }
 
-
-// order product type
-
+// Product type for orders
 export interface Product {
   _id: string;
   categoryName: string;
@@ -173,15 +167,17 @@ export interface Product {
   orderDate: string;
 }
 
+// Shipment status type
 export interface ShipMentStatus {
-  orderStatusDate?:string;
+  orderStatusDate?: string;
   paymentId?: string;
   shipmentStatus?: string;
   orderId?: string;
 }
 
+// Payment info type
 export interface PaymentInfoType {
-  _id:string;
+  _id: string;
   buyerEmail: string | undefined;
   name: string;
   Address: string;
@@ -192,10 +188,9 @@ export interface PaymentInfoType {
   orderStatusDate: string;
   Phone: string;
   totalPrice: number;
-  orderProducts?: any;
+  orderProducts?: any; // Consider replacing 'any' with a more specific type if possible
   paymentId: string;
   shipmentStatus: string;
   orderId?: string;
-  shipmentStatusArray?:ShipMentStatus[] | undefined
-
+  shipmentStatusArray?: ShipMentStatus[] | undefined;
 }
