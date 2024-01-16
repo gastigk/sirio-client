@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import {
   ProductType,
   TeamMember,
-  blogDataType,
+  BlogDataType,
 } from "@/interFace/api-interFace";
 import jwtDecode from "jwt-decode";
 export const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -42,7 +42,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<IUser>();
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const [blog, setBlog] = useState<blogDataType[]>([]);
+  const [blog, setBlog] = useState<BlogDataType[]>([]);
   const [teamList, setTeamList] = useState<TeamMember[]>([]);
   const [update, setUpdate] = useState<boolean>(false);
   const [dynamicId, setDynamicId] = useState<string>("");

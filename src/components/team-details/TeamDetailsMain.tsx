@@ -6,8 +6,8 @@ import TeamSkills from "./TeamSkills";
 import TeamAbout from "./TeamAbout";
 import useGlobalContext from "@/hooks/use-context";
 import axios from "axios";
-import { TeamMember, dynamicIdType } from "@/interFace/api-interFace";
-const TeamDetailsMain = ({ id }: dynamicIdType) => {
+import { TeamMember, DynamicIdType } from "@/interFace/api-interFace";
+const TeamDetailsMain = ({ id }: DynamicIdType) => {
   const {teamList, setTeamList} = useGlobalContext()
     useEffect(() => {
          if(id){

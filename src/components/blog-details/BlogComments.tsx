@@ -1,11 +1,11 @@
 "use client";
 import useGlobalContext from "@/hooks/use-context";
-import { CommentType, dynamicIdType } from "@/interFace/api-interFace";
+import { CommentType, DynamicIdType } from "@/interFace/api-interFace";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import userIcon from "../../../public/assets/img/icon/user-icon.png";
 import Image from "next/image";
-const BlogComments = ({ id }: dynamicIdType) => {
+const BlogComments = ({ id }: DynamicIdType) => {
   const { newComment } = useGlobalContext();
   const [comments, setComments] = useState<CommentType[]>([]);
   const [viewMore, setviewMore] = useState<boolean>(false);

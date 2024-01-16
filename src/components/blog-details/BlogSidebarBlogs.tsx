@@ -1,11 +1,11 @@
 "use client";
-import { blogDataType } from "@/interFace/api-interFace";
+import { BlogDataType } from "@/interFace/api-interFace";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 const BlogSidebarBlogs = () => {
-  const [blogs, setBlogs] = useState<blogDataType[]>([]);
+  const [blogs, setBlogs] = useState<BlogDataType[]>([]);
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(9);
   const [totalPages, setotalPages] = useState<number>(0);

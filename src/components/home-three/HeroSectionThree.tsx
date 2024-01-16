@@ -1,5 +1,5 @@
 "use client";
-import { offerProductType } from "@/interFace/api-interFace";
+import { OfferProductType } from "@/interFace/api-interFace";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import HeroSliderThree from "./HeroSliderThree";
 import BannerPreloader from "@/preloaders/BannerPreloader";
 
 const HeroSectionThree = () => {
-  const [product, setproduct] = useState<offerProductType[]>([]);
+  const [product, setproduct] = useState<OfferProductType[]>([]);
   useEffect(() => {
     axios
       .get(`${process.env.BASE_URL}product/offer-products-banner`) 

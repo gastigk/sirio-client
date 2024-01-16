@@ -22,6 +22,7 @@ export interface CategoryType {
   categoryclass: string;
   categoryThumb: string;
 }
+
 export interface SubCategoryType {
   _id: string;
   subCategoryName: string;
@@ -42,7 +43,8 @@ export interface UserReviewType {
   retting: number;
   img: string;
 }
-export interface blogDataType {
+
+export interface BlogDataType {
   _id: string;
   title: string;
   blogDetails: string;
@@ -54,7 +56,7 @@ export interface blogDataType {
   comment: number;
 }
 
-export interface dynamicIdType {
+export interface DynamicIdType {
   id: string;
 }
 export interface CommentType {
@@ -68,7 +70,7 @@ export interface CommentType {
   title: string;
 }
 
-export interface offerProductType {
+export interface OfferProductType {
   _id: string;
   productId: string;
   productName: string;
@@ -107,7 +109,6 @@ export interface Skill {
   _id: string;
 }
 
-
 export interface CanceOrderDataType {
   _id: string;
   buyerEmail: string | undefined;
@@ -116,9 +117,9 @@ export interface CanceOrderDataType {
   Phone: string;
   productId: string;
   productName: string;
-  returnAmount:number;
+  returnAmount: number;
   paymentId: string;
   orderId?: string;
   returnStatus: string;
-  orderProduct:any;
+  orderProduct: any;
 }

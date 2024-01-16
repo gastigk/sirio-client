@@ -12,13 +12,13 @@ import HeaderTwo from "./headers/header-two";
 import HeaderThree from "./headers/header-three";
 import FooterOne from "./footers/footer";
 import FooterThree from "./footers/footer-three";
-import { childrenType } from "@/interFace/interFace";
+import { ChildrenType } from "@/interFace/interFace";
 import BacktoTop from "@/components/common/backToTop/BacktoTop";
 import OrderTrackModal from "@/components/profile/studentProfile/OrderTrackModal";
 
 // import HeaderTwo from './header/HeaderTwo';
 
-const Wrapper = ({ children }: childrenType) => {
+const Wrapper = ({ children }: ChildrenType) => {
   const pathName = usePathname();
   useEffect(() => {
     setTimeout(() => {

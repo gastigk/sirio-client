@@ -3,7 +3,7 @@ import Link from "next/link";
 import React,{useState,useEffect} from "react";
 import Image from "next/image";
 import axios from "axios";
-import { blogDataType } from "@/interFace/api-interFace";
+import { BlogDataType } from "@/interFace/api-interFace";
 import useGlobalContext from "@/hooks/use-context";
 
 const BlogSection = () => {

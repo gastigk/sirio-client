@@ -1,4 +1,4 @@
-import { ProductType, TeamMember, blogDataType } from "./api-interFace";
+import { ProductType, TeamMember, BlogDataType } from "./api-interFace";
 
 export interface IUser {
   _id: string;
@@ -19,11 +19,13 @@ interface HeaderType {
 }
 
 // children type
-export interface childrenType {
+
+export interface ChildrenType {
   children: React.ReactNode;
 }
 
 // context api data type
+
 export interface AppContextType {
   sideMenuOpen?: boolean;
   //
@@ -75,8 +77,8 @@ export interface AppContextType {
   setUpdate: React.Dispatch<React.SetStateAction<boolean>>;
   myproducts: ProductType[];
   setMyProducts: React.Dispatch<React.SetStateAction<ProductType[] | []>>;
-  blog: blogDataType[];
-  setBlog: React.Dispatch<React.SetStateAction<blogDataType[] | []>>;
+  blog: BlogDataType[];
+  setBlog: React.Dispatch<React.SetStateAction<BlogDataType[] | []>>;
   teamList: TeamMember[];
   setTeamList: React.Dispatch<React.SetStateAction<TeamMember[] | []>>;
   Paymentproducts: SellProductInfoType[];
@@ -84,11 +86,12 @@ export interface AppContextType {
     React.SetStateAction<SellProductInfoType[] | []>
   >;
 }
-export interface idType {
+export interface IdType {
   id?: number;
 }
 
 // menu type
+
 interface DropdownItem {
   link: string;
   title: string;
@@ -104,6 +107,7 @@ export interface NavMenuItem {
 }
 
 // cart product type
+
 export interface CartProductType {
   _id: string;
   categoryName: string;
@@ -145,7 +149,8 @@ export interface SellProductInfoType {
   orderSummary: CartProductType[]; // Assuming CartProductType is the type for items in cartProducts
 }
 
-// Product type for orders
+// order product type
+
 export interface Product {
   _id: string;
   categoryName: string;
@@ -167,7 +172,6 @@ export interface Product {
   orderDate: string;
 }
 
-// Shipment status type
 export interface ShipMentStatus {
   orderStatusDate?: string;
   paymentId?: string;
@@ -175,7 +179,6 @@ export interface ShipMentStatus {
   orderId?: string;
 }
 
-// Payment info type
 export interface PaymentInfoType {
   _id: string;
   buyerEmail: string | undefined;
@@ -188,7 +191,7 @@ export interface PaymentInfoType {
   orderStatusDate: string;
   Phone: string;
   totalPrice: number;
-  orderProducts?: any; // Consider replacing 'any' with a more specific type if possible
+  orderProducts?: any;
   paymentId: string;
   shipmentStatus: string;
   orderId?: string;

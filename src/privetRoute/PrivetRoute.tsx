@@ -2,11 +2,11 @@
 "use client"
 import Preloader from "@/components/common/Preloader";
 import useGlobalContext from "@/hooks/use-context";
-import { childrenType } from "@/interFace/interFace";
+import { ChildrenType } from "@/interFace/interFace";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const PrivetRoute = ({ children }: childrenType) => {
+const PrivetRoute = ({ children }: ChildrenType) => {
   const { user, loading } = useGlobalContext();
 
   const router = useRouter();

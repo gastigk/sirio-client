@@ -3,8 +3,8 @@ import "../style/index.scss";
 import AppProvider from "@/contextApi/AppProvider";
 import ReduxProvider from "@/redux/provider";
 import { ToastContainer } from "react-toastify";
-import { childrenType } from "@/interFace/interFace";
-export default function RootLayout({ children }: childrenType) {
+import { ChildrenType } from "@/interFace/interFace";
+export default function RootLayout({ children }: ChildrenType) {
   return (
     <>
       <html lang="en">

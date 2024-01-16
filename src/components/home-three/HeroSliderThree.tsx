@@ -4,11 +4,11 @@ import React from "react";
 import { Scrollbar, A11y, Autoplay, Pagination, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
-import { offerProductType } from "@/interFace/api-interFace";
+import { OfferProductType } from "@/interFace/api-interFace";
 import HeroSliderPreloader from "@/preloaders/HeroSliderPreloader";
 
 interface productsType {
-  product: offerProductType[];
+  product: OfferProductType[];
 }
 
 const HeroSliderThree = ({ product }: productsType) => {

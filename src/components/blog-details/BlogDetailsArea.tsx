@@ -1,4 +1,4 @@
-import { blogDataType } from "@/interFace/api-interFace";
+import { BlogDataType } from "@/interFace/api-interFace";
 import Link from "next/link";
 import React from "react";
 import thumb from "../../../public/assets/img/news/news-02.jpg";
@@ -13,7 +13,7 @@ import BlogSidebarTags from "./BlogSidebarTags";
 import useGlobalContext from "@/hooks/use-context";
 const BlogDetailsArea = () => {
   const {blog} = useGlobalContext()
-  const item:blogDataType = blog[0]
+  const item:BlogDataType = blog[0]
   return (
     <>
       <div className="blog-area pt-115 pb-100">

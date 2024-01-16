@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { childrenType } from '@/interFace/interFace';
+import { ChildrenType } from '@/interFace/interFace';
 import AdminRoute from '@/privetRoute/PrivetRoute';
 
-const AdminWrapper = ({ children }: childrenType) => {
+const AdminWrapper = ({ children }: ChildrenType) => {
     return (
         <>
             <AdminRoute>

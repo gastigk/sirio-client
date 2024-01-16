@@ -4,9 +4,9 @@ import store, { persistor } from '../redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Preloader from '@/components/common/Preloader';
-import { childrenType } from '@/interFace/interFace';
+import { ChildrenType } from '@/interFace/interFace';
 
-const ReduxProvider = ({ children }:childrenType) => {
+const ReduxProvider = ({ children }:ChildrenType) => {
   return (
     <Provider store={store}>
       <PersistGate loading={<Preloader />} persistor={persistor}>

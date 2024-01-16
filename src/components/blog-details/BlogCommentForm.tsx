@@ -1,6 +1,6 @@
 "use client";
 import useGlobalContext from "@/hooks/use-context";
-import { blogDataType, dynamicIdType } from "@/interFace/api-interFace";
+import { BlogDataType, DynamicIdType } from "@/interFace/api-interFace";
 import axios from "axios";
 import moment from "moment";
 import React from "react";
@@ -12,7 +12,7 @@ interface FormData {
 }
 
 interface blogDataInterFace {
-  item: blogDataType;
+  item: BlogDataType;
 }
 
 const BlogCommentForm = ({ item }: blogDataInterFace) => {
