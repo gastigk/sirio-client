@@ -1,13 +1,11 @@
-//@refresh
 "use client";
+
 import React, { useEffect } from "react";
-import { animationCreate } from "@/utils/utils";
-// import Footer from './footer/Footer';
-import HeaderOne from "../layout/headers/header";
-if (typeof window !== "undefined") {
-  require("bootstrap/dist/js/bootstrap");
-}
+import PropTypes from 'prop-types';
 import { usePathname } from "next/navigation";
+
+import { animationCreate } from "@/utils/utils";
+import HeaderOne from "../layout/headers/header";
 import HeaderTwo from "./headers/header-two";
 import HeaderThree from "./headers/header-three";
 import FooterOne from "./footers/footer";
@@ -16,9 +14,12 @@ import { ChildrenType } from "@/interFace/interFace";
 import BacktoTop from "@/components/common/backToTop/BacktoTop";
 import OrderTrackModal from "@/components/profile/studentProfile/OrderTrackModal";
 
-// import HeaderTwo from './header/HeaderTwo';
+if (typeof window !== "undefined") {
+  require("bootstrap/dist/js/bootstrap");
+}
 
 const Wrapper = ({ children }: ChildrenType) => {
+
   const pathName = usePathname();
   useEffect(() => {
     setTimeout(() => {
@@ -27,7 +28,7 @@ const Wrapper = ({ children }: ChildrenType) => {
   }, []);
 
   return (
-    <>
+    <div>
       <BacktoTop />
       {(() => {
         switch (pathName) {
@@ -51,8 +52,12 @@ const Wrapper = ({ children }: ChildrenType) => {
             return <FooterThree />;
         }
       })()}
-    </>
+    </div>
   );
+};
+
+Wrapper.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Wrapper;

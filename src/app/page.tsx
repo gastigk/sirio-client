@@ -1,17 +1,13 @@
-//@refresh
-
-import HomeMain from "@/components/home/HomeMain";
 import Wrapper from "@/layout/DefaultWrapper";
-const  Home = () => {
+import HomeMain from "@/components/home/HomeMain";
 
+const Home = () => {
   return (
-    <>
-      <Wrapper>
-        <main>
-          <HomeMain/>
-        </main>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <main>
+        <HomeMain/>
+      </main>
+    </Wrapper>
   );
 }
 
