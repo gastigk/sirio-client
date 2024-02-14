@@ -1,7 +1,7 @@
 
 import { ToastContainer } from "react-toastify";
 
-import AppProvider from "@/contextApi/AppProvider";
+import AppProvider from "@/context/AppProvider";
 import ReduxProvider from "@/redux/provider";
 import { ChildrenType } from "@/interFace/interFace";
 import SEO from './SEO';

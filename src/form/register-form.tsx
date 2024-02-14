@@ -4,11 +4,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-
 import moment from "moment";
+import { toast } from 'react-toastify';
+
 import Preloader from "@/components/common/Preloader";
 import NiceSelectTwo from "@/utils/NiceSelectTwo";
 import { GenderData } from "@/data/nice-select-data";
+
 // Define  form data interface
 interface FormData {
   firstName: string;
@@ -21,6 +23,7 @@ interface FormData {
 }
 
 const RegistrationForm: React.FC = () => {
+
   const router = useRouter();
   const [loadings, setloadings] = useState<boolean>(false);
   const [Gender, setGender] = useState<string>("");
@@ -35,7 +38,7 @@ const RegistrationForm: React.FC = () => {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     setloadings(true);
 
     const name = `${data.firstName} ${data.lastName}`;
@@ -55,36 +58,36 @@ const RegistrationForm: React.FC = () => {
       gender,
     };
 
-    axios
-      .post(`${process.env.BASE_URL}user/register`, userInfo)
-      .then((res) => {
-        switch (res.data.message) {
-          case "success":
-            setloadings(false);
-            router.push("/login");
-            break;
-          case "custome error":
-            setloadings(false);
-            setregisterError("Enter Valid Info");
-            break;
-          case "User Is Alreay Exist":
-            setloadings(false);
-            setregisterError("User Is Already Exist");
-            break;
-          default:
-            setloadings(false);
-            // Handle any other response messages if needed.
-            break;
-        }
-      })
-      .catch((error) => console.log(error));
+    try {
+      const res = await axios.post(`${process.env.BASE_URL}user/register`, userInfo);
+
+      setloadings(false);
+
+      switch (res.data.message) {
+        case "success":
+          router.push("/login");
+          break;
+        case "custome error":
+          setregisterError("Enter Valid Info");
+          break;
+        case "User Is Alreay Exist":
+          setregisterError("User Is Already Exist");
+          break;
+        default:
+          // Handle any other response messages if needed.
+          break;
+      }
+    } catch (error) {
+      setloadings(false);
+      toast.error('Something went wrong. Please try again.');
+    }
   };
 
   if (loadings) {
     return <Preloader />;
   }
 
-  const selectHandler = () => {};
+  const selectHandler = () => { };
 
   return (
     <div className="bd-register__area pt-115 pb-130">
@@ -154,7 +157,6 @@ const RegistrationForm: React.FC = () => {
                         {errors.phone && <span className="error-message">{errors.phone.message}</span>}
                       </div>
                     </div>
-
                     <div className="col-xxl-6 col-xl-6 col-lg-6">
                       <div className="bd-password-box d-flex justify-content-between">
                         <input
@@ -185,7 +187,6 @@ const RegistrationForm: React.FC = () => {
                         )}
                       </div>
                     </div>
-
                     <div className="col-xxl-6 col-xl-6 col-lg-6">
                       <div className="bd-postbox__singel-input">
                         <NiceSelectTwo
@@ -198,7 +199,6 @@ const RegistrationForm: React.FC = () => {
                         />
                       </div>
                     </div>
-
                     <div className="signup-action">
                       <div className="signup-action-check">
                         <input
@@ -219,9 +219,7 @@ const RegistrationForm: React.FC = () => {
                         <span className="error-message">{errors.acceptTerms.message}</span>
                       )}
                     </div>
-
                     <span>{registerError && registerError}</span>
-
                     <div className="bd-sigin__action-button mb-20">
                       <button
                         disabled={!acceptTerms}

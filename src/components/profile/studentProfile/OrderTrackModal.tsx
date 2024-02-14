@@ -1,14 +1,17 @@
 "use client";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+
 import CustomDateFormatter from "@/hooks/CustomDateFormatter ";
 import { getClass, getLineActiveClass } from "@/hooks/condition-class";
 import useGlobalContext from "@/hooks/use-context";
 import { PaymentInfoType } from "@/interFace/interFace";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
 
 const OrderTrackModal = () => {
-  const {dynamicId } = useGlobalContext();
+
+  const { dynamicId } = useGlobalContext();
   const [paymentInfo, setPaymentInfo] = useState<PaymentInfoType[]>([]);
+
   useEffect(() => {
     axios
       .get(
@@ -16,8 +19,9 @@ const OrderTrackModal = () => {
       .then((res) => {
         setPaymentInfo(res.data.products);
       })
-      .catch((e) => {});
+      .catch((e) => { });
   }, [dynamicId]);
+
   return (
     <>
       <div
@@ -45,7 +49,6 @@ const OrderTrackModal = () => {
                       <>
                         <div key={item?._id}>
                           <p>#Order Id : {item?.orderId}</p>
-
                           <div className="list-steps">
                             {item?.shipmentStatus == "pending" && (
                               <>
@@ -96,10 +99,8 @@ const OrderTrackModal = () => {
                             })}
                           </div>
                         </div>
-                        
                       </>
                     ))}
-                    
                   </div>
                 </div>
               </div>

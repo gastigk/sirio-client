@@ -3,7 +3,7 @@ import { useClickAway } from "react-use";
 
 interface Option {
   categoryName: string;
-} 
+}
 
 interface NiceSelectProps {
   options: Option[];
@@ -12,7 +12,7 @@ interface NiceSelectProps {
   className?: string;
   onChange: (item: Option, name: string) => void;
   name: string;
-  setapiEndPoint:any
+  setapiEndPoint: any
 }
 
 const NiceSelectTwo: React.FC<NiceSelectProps> = ({
@@ -23,7 +23,7 @@ const NiceSelectTwo: React.FC<NiceSelectProps> = ({
   onChange,
   name,
   setapiEndPoint
-}) => { 
+}) => {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState<Option>(options[defaultCurrent]);
   const onClose = useCallback(() => {
@@ -60,19 +60,19 @@ const NiceSelectTwo: React.FC<NiceSelectProps> = ({
       role="button"
       tabIndex={0}
       onClick={handleClick}
-      onKeyPress={handleKeyPress}
+      onKeyDown={handleKeyPress}
       ref={ref}
     >
       <span className="current mr-20 capitalize">{current?.categoryName || placeholder}</span>
       <ul className="list" role="menubar" onClick={stopPropagation} onKeyPress={stopPropagation}>
-        {options?.map((item,index) => (
+        {options?.map((item, index) => (
           <li
             key={index}
             data-value={index}
             className={`option capitalize ${item.categoryName == current?.categoryName ? "selected focus" : ""}`}
             role="menuitem"
             onClick={() => currentHandler(item)}
-            onKeyPress={(e: KeyboardEvent<HTMLLIElement>) => {
+            onKeyDown={(e: KeyboardEvent<HTMLLIElement>) => {
               stopPropagation(e);
             }}
           >

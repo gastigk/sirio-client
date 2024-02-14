@@ -1,26 +1,38 @@
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React,{useEffect,useState} from "react";
+
+import { CategoryType } from "@/interFace/api-interFace";
 import footerLogo from "../../../public/assets/img/logo/footer-logo.png";
 import support from "../../../public/assets/img/icon/support.png";
 import discover from "../../../public/assets/img/icon/discover.png";
 import masterCard from "../../../public/assets/img/icon/mastercard.png";
 import paypal from "../../../public/assets/img/icon/paypal.png";
 import visa from "../../../public/assets/img/icon/visa.png";
-import axios from "axios";
-import { CategoryType } from "@/interFace/api-interFace";
+
 const FooterOne = () => {
+
   const [categories, setCategories] = useState<CategoryType[]>([]);
+  const [error, setError] = useState(null);
+
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get(`${process.env.BASE_URL}setting/category`);
+      setCategories(res.data);
+    } catch (e: any) {
+      setError(e.message);
+    }
+  };
 
   useEffect(() => {
-    axios
-      .get(`${process.env.BASE_URL}setting/category`)
-      .then((res) => {
-        setCategories(res.data);
-      })
-      .catch((e) => console.log(e));
+    fetchCategories();
   }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <footer>
       <section className="bd-footer__area grey-bg pt-100 pb-40">
@@ -90,22 +102,22 @@ const FooterOne = () => {
                 </div>
                 <div className="bd-footer__link">
                   <ul>
-                    
-                   {
-                    categories?.length ?
-                    <>
-                     {
-                      categories?.map((item)=>(
-                        <li key={item?._id}>
-                        <Link className="text-capitalize" href="/shop">{item?.categoryName}</Link>
-                      </li>
-                      ))
-                     }
-                    </>
-                    :
-                    <>
-                    </>
-                   }
+
+                    {
+                      categories?.length ?
+                        <>
+                          {
+                            categories?.map((item) => (
+                              <li key={item?._id}>
+                                <Link className="text-capitalize" href="/shop">{item?.categoryName}</Link>
+                              </li>
+                            ))
+                          }
+                        </>
+                        :
+                        <>
+                        </>
+                    }
                   </ul>
                 </div>
               </div>
@@ -128,9 +140,9 @@ const FooterOne = () => {
                     <Image src={support} alt="support-img" />
                   </div>
                   <div className="bd-footer__support-inner">
-                    <span>8:30 AM - 9:30 PM</span>
+                    <span>8:30 AM - 19:30 PM</span>
                     <h4>
-                      <Link href="tel:+58569502352">+585 695 023 52 </Link>{" "}
+                      <Link href="tel:+58569502352">+54 9 11 6303 1903 </Link>{" "}
                     </h4>
                   </div>
                 </div>
@@ -145,12 +157,11 @@ const FooterOne = () => {
             <div className="col-xl-6 col-lg-6">
               <div className="bd-footer__copyright">
                 <ul>
-                  <li>All Rights Reserved</li>
-                  <li>
-                    Copyrighted by ©2023{" "}
+                  <li>All Rights Reserved </li>
+                  <li>COPYRIGHT © {new Date().getFullYear()}{" "}
                     <span>
-                      <Link href="https://themeforest.net/user/bdevs/portfolio">
-                        BDevs{" "}
+                      <Link href="https://github.com/gastigk" target='_blank' rel='noopener noreferrer'>
+                        Luci Digital Solutions{" "}
                       </Link>{" "}
                     </span>
                   </li>
@@ -161,11 +172,11 @@ const FooterOne = () => {
               <div className="bd-footer__payment">
                 <ul>
                   <li>
-                    <span>We Support</span>
+                    <span>Trabajamos con </span>
                   </li>
                   <li>
                     <Link href="#">
-                      <Image src={discover} alt="discover" />{" "}
+                      <Image src='https://res.cloudinary.com/drl62fylt/image/upload/c_fill,w_49,h_30/v1705605453/mercadopago_hefizz.png' width={49} height={30} alt="discover" />{" "}
                     </Link>{" "}
                   </li>
                   <li>

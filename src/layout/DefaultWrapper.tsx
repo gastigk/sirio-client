@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 import { usePathname } from "next/navigation";
 
 import { animationCreate } from "@/utils/utils";
+import { ChildrenType } from "@/interFace/interFace";
+import BacktoTop from "@/components/common/backToTop/BacktoTop";
+import OrderTrackModal from "@/components/profile/studentProfile/OrderTrackModal";
 import HeaderOne from "../layout/headers/header";
 import HeaderTwo from "./headers/header-two";
 import HeaderThree from "./headers/header-three";
 import FooterOne from "./footers/footer";
 import FooterThree from "./footers/footer-three";
-import { ChildrenType } from "@/interFace/interFace";
-import BacktoTop from "@/components/common/backToTop/BacktoTop";
-import OrderTrackModal from "@/components/profile/studentProfile/OrderTrackModal";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");

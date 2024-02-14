@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 const msInSecond = 1000;
 const msInMinute = 60 * 1000;
 const msInAHour = 60 * msInMinute;
@@ -16,12 +15,13 @@ const getPartsofTimeDuration = (duration) => {
 };
 
 const Time = (endDateTime) => {
-  const date = new Date().toLocaleTimeString()
+  const date = new Date().toLocaleTimeString();
   const [time, setTime] = useState(date);
 
   const now = Date.now(); // Number of milliseconds from begining of time
   const future = new Date(endDateTime);
   const timeDif = future.getTime() - now;
+
   let timeParts = getPartsofTimeDuration(timeDif);
   timeParts.days = timeParts.days <= 9 ? `0${timeParts.days}` : timeParts.days;
   timeParts.minutes =
@@ -43,8 +43,6 @@ const Time = (endDateTime) => {
   }, [time]);
 
   return timeParts;
-
-
 };
-export default Time;
 
+export default Time;
